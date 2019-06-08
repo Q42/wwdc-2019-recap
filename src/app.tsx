@@ -87,6 +87,7 @@ class App extends React.Component {
         <div className="filters">{Controls(tagObjects.filter((t) => t.type === "all"), this.toggleFilter.bind(this))}</div>
         <div className="filters">Filters: {Controls(tagObjects.filter((t) => t.type === "state"), this.toggleFilter.bind(this))}</div>
         <div className="tracks">Tracks:  {Controls(tagObjects.filter((t) => t.type === "track"), this.toggleFilter.bind(this))}</div>
+        <div>Showing {filteredVideos.length} videos.</div>
       </div>
       <div className="videos">{
         filteredVideos.map((video) => (Video({
