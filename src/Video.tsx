@@ -1,3 +1,5 @@
+const ReactMarkdown = require('react-markdown')
+
 export default (video: any, toggle: (id: string) => void) => (<div className="video" key={video.id}>
     <h2>
         {video.id} - {video.title} <a href={video.webPermalink}>(video)</a><span> </span>
@@ -6,5 +8,6 @@ export default (video: any, toggle: (id: string) => void) => (<div className="vi
     <div>{video.description}</div>
     <div>Keywords: {(video.keywords || []).map((key) => (<span className="keyword" key={key}>{key}</span> ))}</div>
     <div>Platforms: {(video.platforms || []).map((key) => (<span className="keyword" key={key}>{key}</span> ))}</div>
+    {video.summary ? (<div className="summary"><h3>Summary:</h3> <ReactMarkdown source={video.summary} /></div>) : <div />}
 </div>)
   

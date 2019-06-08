@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Controls, { Track } from "./Controls";
 import Video from "./Video";
-import { tags, docs } from "../review.json";
+import { tags } from "../review.json";
 import * as data from "../contents.json";
+import * as docs from "../docs.json";
 
 declare const global: any;
 global.React = React;
 global.data = data;
 global.videos = data.contents.filter((c) => c.id.startsWith("wwdc2019")).filter((c) => c.type === "Session");
+global.docs = docs;
+const docsById = Object.keys(docs).map((key) => docs[key]).reduce((prev, next) => ({ ...prev, [next.name]: next.body }), {});
 
 const videos = global.videos;
 
@@ -81,7 +84,11 @@ class App extends React.Component {
     return <div>
       <div className="controls">{Controls(tagObjects, this.toggleFilter.bind(this))}</div>
       <div className="videos">{
-        filteredVideos.map((video) => (Video({ ...video, bookmarked: this.state.bookmarks.indexOf(video.id) >= 0 }, this.toggleBookmark.bind(this))))
+        filteredVideos.map((video) => (Video({
+          ...video,
+          bookmarked: this.state.bookmarks.indexOf(video.id) >= 0,
+          summary: docsById[video.id],
+        }, this.toggleBookmark.bind(this))))
       }</div>
     </div>;
   }
