@@ -1,6 +1,6 @@
 export default (video: any, toggle: (id: string) => void) => (<div key={video.id}>
     <h2>
-        {video.title} <a href={video.webPermalink}>(video)</a><span> </span>
+        {video.id} - {video.title} <a href={video.webPermalink}>(video)</a><span> </span>
         <label className="bookmark">Bookmark <input onChange={(e) => toggle(video.id, e.target.checked)} type="checkbox" checked={video.bookmarked} /></label>
     </h2>
     <div>{video.description}</div>
