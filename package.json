@@ -18,7 +18,7 @@
     "start": "NODE_ENV=development parcel index.html ",
     "build": "NODE_ENV=production parcel build index.html --public-url ./",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "cp img/* dist/img/ && gh-pages -d dist"
   },
   "author": "",
   "license": "ISC"
