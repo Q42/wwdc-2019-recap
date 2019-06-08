@@ -1,8 +1,8 @@
 const ReactMarkdown = require('react-markdown')
 
 export default (video: any, toggle: (id: string) => void) => (<div className="video" key={video.id}>
-    <h2>
-        {video.id} - {video.title} <a href={video.webPermalink}>(video)</a><span> </span>
+    <h2 id={video.id}>
+        <a href={`#${video.id}`} title={video.id}>#</a> {video.title} <a href={video.webPermalink}>(video)</a><span> </span>
         <label className="bookmark">Bookmark <input onChange={(e) => toggle(video.id, e.target.checked)} type="checkbox" checked={video.bookmarked} /></label>
     </h2>
     <div>{video.description}</div>
