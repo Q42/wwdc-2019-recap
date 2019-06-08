@@ -3,12 +3,12 @@
         "like": {
             "name": "Recommended",
             "type": "state",
-            "videos": ["wwdc2019-237"]
+            "videos": ["wwdc2019-237", "wwdc2019-230", "wwdc2019-226", "wwdc2019-204"]
         },
         "dislike": {
             "name": "Discommend",
             "type": "state",
-            "videos": []
+            "videos": ["wwdc2019-423", "wwdc2019-243"]
         },
         "summarized": {
             "name": "With summary",
@@ -18,27 +18,32 @@
         "ios": {
             "name": "iOS developer",
             "type": "track",
-            "videos": []
+            "videos": ["wwdc2019-230", "wwdc2019-233", "wwdc2019-226", "wwdc2019-204"]
+        },
+        "webdev": {
+            "name": "Web developer",
+            "type": "track",
+            "videos": ["wwdc2019-203", "wwdc2019-706", "wwdc2019-236", "wwdc2019-241"]
         },
         "ml": {
             "name": "ML enthousiast",
             "type": "track",
             "videos": []
         },
-        "appleid": {
-            "name": "Apple ID",
+        "voice": {
+            "name": "Voice enthousiast",
             "type": "track",
-            "videos": []
+            "videos": ["wwdc2019-243", "wwdc2019-207"]
         },
         "swiftui": {
             "name": "SwiftUI",
             "type": "track",
-            "videos": []
+            "videos": ["wwdc2019-216", "wwdc2019-237", "wwdc2019-219", "wwdc2019-204"]
         },
         "combine": {
             "name": "Combine",
             "type": "track",
-            "videos": []
+            "videos": ["wwdc2019-712", "wwdc2019-711", "wwdc2019-721", "wwdc2019-226"]
         },
         "xcode": {
             "name": "Xcode",
