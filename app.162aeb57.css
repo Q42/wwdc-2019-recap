@@ -18,6 +18,7 @@
   margin: 0 0 10px 0;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
 }
 .videos .video h2,
 .videos .video h3 {
