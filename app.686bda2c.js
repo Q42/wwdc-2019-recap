@@ -35316,8 +35316,12 @@ exports["default"] = function (video, toggle) {
   })) : React.createElement("div", null));
 };
 },{"react-markdown":"node_modules/react-markdown/lib/react-markdown.js"}],"review.json":[function(require,module,exports) {
+var _tags;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 module.exports = {
-  "tags": {
+  "tags": (_tags = {
     "like": {
       "name": "Recommended",
       "type": "state",
@@ -35346,28 +35350,28 @@ module.exports = {
     "ml": {
       "name": "ML enthousiast",
       "type": "track",
-      "videos": []
-    },
-    "voice": {
-      "name": "Voice enthousiast",
-      "type": "track",
-      "videos": ["wwdc2019-243", "wwdc2019-207"]
-    },
-    "swiftui": {
-      "name": "SwiftUI",
-      "type": "track",
-      "videos": ["wwdc2019-216", "wwdc2019-237", "wwdc2019-219", "wwdc2019-204"]
-    },
-    "combine": {
-      "name": "Combine",
-      "type": "track",
-      "videos": ["wwdc2019-712", "wwdc2019-711", "wwdc2019-721", "wwdc2019-226"]
-    },
-    "xcode": {
-      "name": "Xcode",
-      "videos": ["wwdc2019-401", "wwdc2019-239", "wwdc2019-403"]
+      "videos": ["wwdc2019-420", "wwdc2019-803", "wwdc2019-614", "wwdc2019-704", "wwdc2019-407", "wwdc2019-209"]
     }
-  }
+  }, _defineProperty(_tags, "ml", {
+    "name": "AR enthousiast",
+    "type": "track",
+    "videos": ["wwdc2019-602", "wwdc2019-603", "wwdc2019-602"]
+  }), _defineProperty(_tags, "voice", {
+    "name": "Voice enthousiast",
+    "type": "track",
+    "videos": ["wwdc2019-243", "wwdc2019-207"]
+  }), _defineProperty(_tags, "swiftui", {
+    "name": "SwiftUI",
+    "type": "track",
+    "videos": ["wwdc2019-216", "wwdc2019-237", "wwdc2019-219", "wwdc2019-204", "wwdc2019-240"]
+  }), _defineProperty(_tags, "combine", {
+    "name": "Combine",
+    "type": "track",
+    "videos": ["wwdc2019-712", "wwdc2019-711", "wwdc2019-721", "wwdc2019-226"]
+  }), _defineProperty(_tags, "xcode", {
+    "name": "Xcode",
+    "videos": ["wwdc2019-401", "wwdc2019-239", "wwdc2019-403"]
+  }), _tags)
 };
 },{}],"contents.json":[function(require,module,exports) {
 module.exports = {
