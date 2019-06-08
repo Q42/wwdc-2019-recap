@@ -85,7 +85,7 @@ Swift UI introduction - Creating your first app
 The SwiftUI view data structure gets compressed aggressively. So using
 small views to abstract things is fine and is encouraged.
 
-Properties of views are either a source of truth (\@State, \@Binding) or
+Properties of views are either a source of truth (@State, @Binding) or
 derived from a source of truth (var, let).
 
 There's live mode vs. Preview mode. Preview mode lets you inspect
@@ -323,13 +323,13 @@ Data flow through SwiftUI
 
 Best practice: Create a single source of truth that propagates downward!
 
-\@State -\> this value can change over time, and view depends on it
+@State -\> this value can change over time, and view depends on it
 
 -   Is view-local
 -   The frameworks allocates & manages your storage
 -   Mutation generates a new view body
 -   Uses a property wrapper
--   Every \@state is a source of truth
+-   Every @state is a source of truth
 -   Views are a function of state, not a sequence of events
 
 Publisher
@@ -342,7 +342,7 @@ BindableObject (protocol)
 -   Use it to connect existing data/services to SwiftUI
 -   BindableObject is:
 
-<!-- -->
+
 
 -   External
 -   A reference
@@ -352,14 +352,14 @@ var didChange = PassthroughSubject\<Void, Never\>()
 
 didChange.send()
 
-\@ObjectBinding creates a dependency from the view upon the model
+@ObjectBinding creates a dependency from the view upon the model
 
 -   You inject this dependency into the view
 -   Automatic dependency tracking
 -   Don't use this to pass models through the hierarchy, use
-    \@EnvironmentObject instead
+    @EnvironmentObject instead
 
-\@EnvironmentObject pushes data through the view hierarchy
+@EnvironmentObject pushes data through the view hierarchy
 
 Views are a low-cost abstraction. Using a lot is encouraged.
 
@@ -425,7 +425,7 @@ Use combine today
 
 1.  Compose small parts into custom publishers
 2.  Adopt incrementally
-3.  Add a Publisher to a property with \@Published
+3.  Add a Publisher to a property with @Published
 4.  Compose callbacks and Publishers with Future
 
 Integrating SwiftUI
@@ -437,7 +437,7 @@ Integrating SwiftUI
 
 -   Use UIHostingController
 -   NSHostingController/NSHostingView
--   Use \@IBSegueAction + UIHostingController to push a segue to a
+-   Use @IBSegueAction + UIHostingController to push a segue to a
     swiftui view
 
 ### UIKit in SwiftUI is also possible
@@ -452,7 +452,7 @@ Integrating your data model
 
 BindableObject protocol -\> var didChange: PublisherType
 
-\@ObjectBinding var data
+@ObjectBinding var data
 
 Publishers
 
@@ -648,39 +648,39 @@ Interface patterns
 
 -   Multiple options
 
-<!-- -->
+
 
 -   Choose from the results a feature generates
 -   Provide a set of meaningfully different options, such as different
     routes in a navigation app.
 
-<!-- -->
+
 
 -   Attributions
 
-<!-- -->
+
 
 -   Avoid profiling people
 -   State real facts, instead of "Top picks because you love cooking",
     say "Top picks because you love \$appName"
 -   Cite the data source
 
-<!-- -->
+
 
 -   Confidence -\> certainty measure
 
-<!-- -->
+
 
 -   Translate into human terms instead of displaying just raw
     numbers/percentages
 -   Provide a range in case of an estimation
 -   
 
-<!-- -->
+
 
 -   Limitations
 
-<!-- -->
+
 
 -   Limitations happen when there's a mismatch between people's mental
     model of the feature and of what the feature actually does.
@@ -695,18 +695,18 @@ Outputs are a design medium.
 
 -   Calibration
 
-<!-- -->
+
 
 -   User provides essential information to make the feature work.
 -   Be quick and effortless, only ask for essential information
 -   Introduce, guide and confirm
 -   Provide a way to update/remove the information
 
-<!-- -->
+
 
 -   Implicit feedback
 
-<!-- -->
+
 
 -   Improve the model based on interactions with the app.
 -   Strive to identify people's intention
@@ -714,21 +714,21 @@ Outputs are a design medium.
 -   Respect people's privacy
 -   Make interactions more accurate and delightful
 
-<!-- -->
+
 
 -   Explicit feedback
 
-<!-- -->
+
 
 -   Prioritize negative feedback over positive.
 -   Love/dislike? Clearly describe the action and its consequences.
     Provide different options to better understand the user's intention.
 
-<!-- -->
+
 
 -   Corrections
 
-<!-- -->
+
 
 -   Detect when the user fixes a mistake and update the model.
 -   Use known tasks for this. For example, with spelling, the standard
