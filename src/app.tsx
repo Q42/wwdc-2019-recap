@@ -15,15 +15,33 @@ const videos = global.videos;
 
 class App extends React.Component {
 
+  constructor(...args) {
+    super(...args);
+    if (localStorage) {
+      const stored = localStorage.getItem("data");
+      console.log("Data")
+      if (stored) {
+        console.log("Setting state", JSON.parse(stored))
+        this.state = JSON.parse(stored);
+      }
+    }
+  }
+
   public state = { filters: [], bookmarks: [], showBookmarkedOnly: false };
 
   toggleFilter(name: string, selected: boolean) {
-    if (!selected) {
-      // remove
-      this.setState({ filters: this.state.filters.filter((s) => s !== name) });
+    if (name === "all") {
+      if (selected) {
+        this.setState({ filters: [] });
+      }
     } else {
-      // add
-      this.setState({ filters: [...this.state.filters, name] });
+      if (!selected) {
+        // remove
+        this.setState({ filters: this.state.filters.filter((s) => s !== name) });
+      } else {
+        // add
+        this.setState({ filters: [...this.state.filters, name] });
+      }  
     }
   }
 
@@ -38,18 +56,25 @@ class App extends React.Component {
   }
   
   render() {
+    // Save shown state for later
+    localStorage.setItem("data", JSON.stringify(this.state));
+    console.log("Writing state", JSON.stringify(this.state));
+
+    // Calculated filter view data
     const tagObjects = Object.keys(tags).map((tagName) => ({
       id: tagName,
       selected: this.state.filters.indexOf(tagName) >= 0,
       ...tags[tagName],
     }));
 
+    // Add non-data bookmark filter
     tagObjects.push({
       id: "bookmark",
       selected: this.state.filters.indexOf("bookmark") >= 0,
       name: "Bookmarks",
     })
 
+    // Add 'all' negative filter
     tagObjects.unshift({ id: "all", name: "All", selected: this.state.filters.length === 0 || tagObjects.length === this.state.filters.length });
 
     return <div>
