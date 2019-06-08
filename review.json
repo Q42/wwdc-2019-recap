@@ -1,6 +1,37 @@
 {
     "tags": {
-
+        "like": {
+            "name": "Recommended",
+            "videos": []
+        },
+        "dislike": {
+            "name": "Discommend",
+            "videos": []
+        },
+        "summarized": {
+            "name": "With summary",
+            "videos": []
+        },
+        "ios": {
+            "name": "iOS developer",
+            "videos": []
+        },
+        "ml": {
+            "name": "ML enthousiast",
+            "videos": []
+        },
+        "appleid": {
+            "name": "Apple ID",
+            "videos": []
+        },
+        "swiftui": {
+            "name": "SwiftUI",
+            "videos": []
+        },
+        "combine": {
+            "name": "Combine",
+            "videos": []
+        }
     },
     "docs": {
         
