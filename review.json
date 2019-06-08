@@ -2,7 +2,7 @@
     "tags": {
         "like": {
             "name": "Recommended",
-            "videos": []
+            "videos": ["wwdc2019-237"]
         },
         "dislike": {
             "name": "Discommend",

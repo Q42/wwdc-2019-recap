@@ -12,16 +12,13 @@ global.videos = data.contents.filter((c) => c.id.startsWith("wwdc2019")).filter(
 
 const videos = global.videos;
 
-
 class App extends React.Component {
 
   constructor(...args) {
     super(...args);
     if (localStorage) {
       const stored = localStorage.getItem("data");
-      console.log("Data")
       if (stored) {
-        console.log("Setting state", JSON.parse(stored))
         this.state = JSON.parse(stored);
       }
     }
@@ -58,7 +55,6 @@ class App extends React.Component {
   render() {
     // Save shown state for later
     localStorage.setItem("data", JSON.stringify(this.state));
-    console.log("Writing state", JSON.stringify(this.state));
 
     // Calculated filter view data
     const tagObjects = Object.keys(tags).map((tagName) => ({
@@ -75,14 +71,28 @@ class App extends React.Component {
     })
 
     // Add 'all' negative filter
-    tagObjects.unshift({ id: "all", name: "All", selected: this.state.filters.length === 0 || tagObjects.length === this.state.filters.length });
+    const showAll = this.state.filters.length === 0 || tagObjects.length === this.state.filters.length;
+    tagObjects.unshift({ id: "all", name: "All", selected: showAll });
+    let filteredVideos = videos;
+    if (!showAll) {
+      filteredVideos = videos.filter((video) => this.matchesFilters(video.id))
+    }
 
     return <div>
       <div className="controls">{Controls(tagObjects, this.toggleFilter.bind(this))}</div>
       <div className="videos">{
-        videos.map((video) => (Video({ ...video, bookmarked: this.state.bookmarks.indexOf(video.id) >= 0 }, this.toggleBookmark.bind(this))))
+        filteredVideos.map((video) => (Video({ ...video, bookmarked: this.state.bookmarks.indexOf(video.id) >= 0 }, this.toggleBookmark.bind(this))))
       }</div>
     </div>;
+  }
+
+  private matchesFilters(videoId) {
+    return this.state.filters.some((filterId) =>
+      filterId === "bookmark" 
+        // if the video is bookmarked
+        ? this.state.bookmarks.indexOf(videoId) >= 0
+        // if the video list of the tag contains this video 
+        : tags[filterId].videos.indexOf(videoId) >= 0)
   }
 }
 
