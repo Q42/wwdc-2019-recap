@@ -2,6 +2,10 @@
     padding: 10px;
     background: black;
     color: white;
+    input {
+        margin-right: 3px;
+        font-size: 100%;
+    }
 }
 
 .videos {
@@ -26,7 +30,7 @@
     }
 }
 
-html, body {margin:0; padding: 0;}
+html, body { margin:0; padding: 0; font-family: system-ui; }
 
 .keyword { background: lightgray; padding: 0 3px; margin: 0 3px; }
 
@@ -35,10 +39,9 @@ html, body {margin:0; padding: 0;}
 
 .controls button {
     background: white; border-radius: 4px; border: 1px solid darkgray;
-}
-
-.controls button.selected {
-    background: lightblue;
+    &.selected {
+        background: lightblue;
+    }
 }
 
 .track { padding: 0 5px; }

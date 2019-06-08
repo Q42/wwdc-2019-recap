@@ -69,20 +69,25 @@ class App extends React.Component {
     // Add non-data bookmark filter
     tagObjects.push({
       id: "bookmark",
+      type: "state",
       selected: this.state.filters.indexOf("bookmark") >= 0,
       name: "Bookmarks",
     })
 
     // Add 'all' negative filter
     const showAll = this.state.filters.length === 0 || tagObjects.length === this.state.filters.length;
-    tagObjects.unshift({ id: "all", name: "All", selected: showAll });
+    tagObjects.unshift({ id: "all", name: "All", selected: showAll, type: "all" });
     let filteredVideos = videos;
     if (!showAll) {
       filteredVideos = videos.filter((video) => this.matchesFilters(video.id))
     }
 
     return <div>
-      <div className="controls">{Controls(tagObjects, this.toggleFilter.bind(this))}</div>
+      <div className="controls">
+        <div className="filters">{Controls(tagObjects.filter((t) => t.type === "all"), this.toggleFilter.bind(this))}</div>
+        <div className="filters">Filters: {Controls(tagObjects.filter((t) => t.type === "state"), this.toggleFilter.bind(this))}</div>
+        <div className="tracks">Tracks:  {Controls(tagObjects.filter((t) => t.type === "track"), this.toggleFilter.bind(this))}</div>
+      </div>
       <div className="videos">{
         filteredVideos.map((video) => (Video({
           ...video,
@@ -90,7 +95,7 @@ class App extends React.Component {
           summary: docsById[video.id],
         }, this.toggleBookmark.bind(this))))
       }</div>
-    </div>;
+    </div>
   }
 
   private matchesFilters(videoId) {
