@@ -94,12 +94,15 @@ class App extends React.Component {
   }
 
   private matchesFilters(videoId) {
-    return this.state.filters.some((filterId) =>
-      filterId === "bookmark" 
+    return this.state.filters.some((filterId) => {
+      switch (filterId) {
         // if the video is bookmarked
-        ? this.state.bookmarks.indexOf(videoId) >= 0
+        case "bookmark": return this.state.bookmarks.indexOf(videoId) >= 0;
         // if the video list of the tag contains this video 
-        : tags[filterId].videos.indexOf(videoId) >= 0)
+        case "summarized": return docsById[videoId] ? true : false;
+        default: return tags[filterId].videos.indexOf(videoId) >= 0;
+      }
+    });
   }
 }
 
