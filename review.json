@@ -48,8 +48,25 @@
         "ml": {
             "name": "ML enthousiast",
             "type": "track",
-            "videos": []
+            "videos": [
+                "wwdc2019-420",
+                "wwdc2019-803",
+                "wwdc2019-614",
+                "wwdc2019-704",
+                "wwdc2019-407",
+                "wwdc2019-209",
+            ]
         },
+        "ml": {
+            "name": "AR enthousiast",
+            "type": "track",
+            "videos": [
+                "wwdc2019-602",
+                "wwdc2019-603",
+                "wwdc2019-602",
+            ]
+        },
+
         "voice": {
             "name": "Voice enthousiast",
             "type": "track",
@@ -65,6 +82,7 @@
                 "wwdc2019-237",
                 "wwdc2019-219",
                 "wwdc2019-204",
+                "wwdc2019-240",
             ]
         },
         "combine": {
