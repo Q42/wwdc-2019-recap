@@ -2,34 +2,42 @@
     "tags": {
         "like": {
             "name": "Recommended",
+            "type": "state",
             "videos": ["wwdc2019-237"]
         },
         "dislike": {
             "name": "Discommend",
+            "type": "state",
             "videos": []
         },
         "summarized": {
             "name": "With summary",
+            "type": "state",
             "videos": []
         },
         "ios": {
             "name": "iOS developer",
+            "type": "track",
             "videos": []
         },
         "ml": {
             "name": "ML enthousiast",
+            "type": "track",
             "videos": []
         },
         "appleid": {
             "name": "Apple ID",
+            "type": "track",
             "videos": []
         },
         "swiftui": {
             "name": "SwiftUI",
+            "type": "track",
             "videos": []
         },
         "combine": {
             "name": "Combine",
+            "type": "track",
             "videos": []
         }
     }
